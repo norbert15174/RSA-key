@@ -1,0 +1,14 @@
+1. Podaje lub losuje dwie liczby pierwsze (p, q) oraz ciąg znaków jaki chce zaszyfrować
+2. Sprawdzam czy liczby te są dodatnie, całkowite, pierwsze oraz różne od siebie
+3. Wyznaczam moduł RSA -> n = p*q
+4. Wyznaczam publiczny wykładnik RSA -> e w taki sposób, że GCD(e, LCM[q-1, p-1]) = 1
+5. Wyznaczam prywatny wykładnik RSA -> d  w taki sposób, że e * d == 1 (mod LCM[q-1, p-1]) !!! poprostu zastosować EEA - rozszerzony algorytm euklidesa
+6. Szyfrowanie - kluczem publicznym (n, e):
+	- każda litere z tekstu do zaszyfrowania przeliczam na ASCII -> m(i) = ASCII_i(char)
+	- szyfruje stosując zalezność c(i) = (m(i) ^ e) mod n
+7. Deszyfrowanie - kluczem prywatnym (n, d):
+	- deszyfruje stosując zależność m(i) = (c(i) ^ d) mod n 
+	- łącze poszczególne znaki w ciąg znaków
+
+
+
